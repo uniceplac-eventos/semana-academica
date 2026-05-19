@@ -725,7 +725,7 @@
     #det-bar {
       position: fixed;
       z-index: 9999;
-      top: 15%;
+      top: 5%;
       left: 5%;
       right: 5%;
       background: var(--surf);
@@ -1343,6 +1343,7 @@
           ['Local', S.sel.sala], ['Data', S.sel.data ? S.sel.data : '—'],
           ['Horário', S.sel.horario ? S.sel.horario : '—'], ['Público', S.sel.publico],
           ['Vagas', S.sel.vagas ? S.sel.vagas + ' vagas' : '—'],
+          ['Inscrição', S.sel.forms ? S.sel.forms : 'Em breve']
         ].filter(([, v]) => v).map(([k, v]) =>
           `<div class="det-it"><span class="det-k">${k}</span><span class="det-v">${v}</span></div>`
         ).join('') + `<button class="det-cls" onclick="clearSel()">&#215;</button>`;
