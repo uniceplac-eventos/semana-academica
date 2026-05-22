@@ -782,6 +782,22 @@
     color: var(--txt)
   }
 
+  .inscription-button {
+    background-color: var(--green);
+    padding: 0.8rem 1rem;
+    border-radius: 9999px;
+    box-shadow: 5px 5px 15px 0px rgba(20, 86, 48, 0.15);
+    color: var(--orange-l);
+    text-decoration: none;
+    place-self: center;
+    transition: ease-in;
+    transition-duration: 300ms;
+  }
+
+  .inscription-button:hover {
+    box-shadow: 5px 5px 15px 0px rgba(20, 86, 48, 0.50);
+  }
+
   /* ── EMPTY ── */
   .empty-state {
     display: flex;
@@ -3002,7 +3018,7 @@
             ['Inscrição', S.sel.forms ? S.sel.forms : 'Em breve']
           ].filter(([, v]) => v).map(([k, v]) =>
             `<div class="det-it"><span class="det-k">${k}</span><span class="det-v">${v}</span></div>`
-          ).join('');
+          ).join('') + `<a class="inscription-button" href="https://www.even3.com.br/semana-integrada-uniceplac-2026-741666">Realizar Inscrição</a>`;
       } else {
         det.style.display = 'none';
         modal.style.display = 'none';
