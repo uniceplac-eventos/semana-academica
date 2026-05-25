@@ -740,7 +740,20 @@
     box-shadow: 0 0 0 4px var(--green-l);
     flex-direction: column;
     overflow-y: scroll;
-    height: 85vh;
+  }
+
+  /* #### Mobile Phones Portrait #### */
+  @media screen and (max-device-width: 480px) and (orientation: portrait) {
+    #det-bar {
+      height: 90vh;
+    }
+  }
+
+  /* #### Mobile Phones Landscape #### */
+  @media screen and (max-device-height: 360px) and (orientation: landscape) {
+    #det-bar {
+      height: 90vh;
+    }
   }
 
   .det-it {
@@ -791,7 +804,8 @@
     box-shadow: 5px 5px 15px 0px rgba(20, 86, 48, 0.15);
     color: var(--orange-l);
     text-decoration: none;
-    place-self: center;
+    align-self: center;
+    justify-self: end;
     transition: ease-in;
     transition-duration: 300ms;
     margin: 1rem 0;
@@ -1040,6 +1054,21 @@
     //  DATA
     // ═══════════════════════════════
     let ITEMS = [
+      {
+        "id": 0,
+        "curso": "Direito",
+        "tipo": "Mostra Cultural",
+        "nome": "Ruas que falam: Direitos, Dignidade e Inclusão",
+        "palestrante": "Professora Elizabeth",
+        "local": "Sala de Audiências",
+        "sala": "",
+        "publico": "Aberto ao Público",
+        "vagas": "",
+        "horario": "09h00 às 11h00 - 19h30 às 21h30",
+        "turno": "Matutino e Noturno",
+        "data": "26 de maio de 2026",
+        "dia": "26/05",
+      },
       {
         "id": 1,
         "curso": "Biomedicina/Farmácia",
