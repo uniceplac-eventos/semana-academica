@@ -2843,15 +2843,31 @@
       const q = S.search.toLowerCase();
 
       return ITEMS.filter(it => {
-        if (it.atividades && it.atividades != []) {
-          const result = q && !it.atividades.some(v => (v || '').toLowerCase().includes(q)) ? false : true
-          return result
+        // Verifica se it.atividades é um array não vazio
+        const hasActivities = Array.isArray(it.atividades) && it.atividades.length > 0;
+
+        // Busca textual unificada: busca em atividades E nos campos tradicionais
+        let matchesSearch = true;
+        if (q) {
+          let foundInActivities = false;
+          if (hasActivities) {
+            foundInActivities = it.atividades.some(v => (v || '').toLowerCase().includes(q));
+          }
+          const foundInFields = [it.curso, it.tipo, it.nome, it.local]
+            .some(v => (v || '').toLowerCase().includes(q));
+
+          if (!foundInActivities && !foundInFields) {
+            matchesSearch = false;
+          }
         }
-        if (q && ![it.curso, it.tipo, it.nome, it.local].some(v => (v || '').toLowerCase().includes(q))) return false;
+        if (!matchesSearch) return false;
+
+        // Filtros exatos - aplicados SEMPRE, independente de atividades
         if (S.pub !== 'all' && it.publico !== S.pub) return false;
         if (S.hor !== 'all' && it.turno !== S.hor) return false;
         if (S.dia !== 'all' && it.dia !== S.dia) return false;
         if (S.curso !== 'all' && it.curso !== S.curso) return false;
+
         return true;
       });
     }
